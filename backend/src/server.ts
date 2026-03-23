@@ -1,13 +1,16 @@
-import express from "express";
+import dotenv from "dotenv";
+import express, { Request, Response } from "express";
+
+dotenv.config();
+
 const app = express();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-app.get("/", (req: express.Request, res: express.Response) => {
+app.get("/", (req: Request, res: Response) => {
     res.send("Hello from backend");
 });
 
 app.listen(PORT, () => {
-    console.log("Server running on port 3000");
+    console.log(`Server running on port ${PORT}`);
 });
-
